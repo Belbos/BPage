@@ -24,7 +24,7 @@ SECRET_KEY = 'pzb=5f$%1@_+f#(j1!k=&tgo@t(vg82j1_5z4xc8ybc$d^)q*m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,7 +118,43 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/blog/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+
+# 로그 찍는 부분
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+        'console': {
+         'level': 'DEBUG',
+         'class': 'logging.StreamHandler',
+         'formatter': 'simple'
+         },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+    },
+}
+
