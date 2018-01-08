@@ -1,8 +1,9 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>BPage</title>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
 
         <style>
 
@@ -13,16 +14,18 @@
         <nav>
             <div class="page-header"><a href="/" >BPage</a></div>
             <ul>
-                <li><a href=""><i >tt</i><span>index</span></a> </li>
-                <li>test1</li>
-                <li>test2</li>
-                <li>test3</li>
+                <li><a href="/"><i><img src="/static/img/home.png"></i><span>Home</span></a> </li>
+                <li><a href="/Coin"><i><img src="/static/img/bitcoin-logo-W.png"></i><span>암호화폐</span></a> </li>
+                <li><a href="/"><i><img src="/static/img/contract.png"></i><span>게시판</span></a> </li>
+                <li><a href="/"><i><img src="/static/img/admin_icon.png"></i><span>관리자</span></a> </li>
             </ul>
         </nav>
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
+                test!!
                 {% block content %}
+
                 {% endblock %}
                 </div>
             </div>
